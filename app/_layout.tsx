@@ -8,6 +8,7 @@ import "react-native-reanimated";
 
 import { AuthContextProvider } from "@/contexts/AuthContext";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export const unstable_settings = {
   anchor: "(tabs)",
@@ -17,11 +18,13 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <AuthContextProvider>
-        <RootLayoutNav />
-      </AuthContextProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <AuthContextProvider>
+          <RootLayoutNav />
+        </AuthContextProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 

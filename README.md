@@ -104,3 +104,17 @@ Join our community of developers creating universal apps.
 ```
 
 Currently using Expo **SDK 54** (current version), which has **New Architecture** is enabled by default in 54.
+
+- Created an authContext to store basic App user detials `useAuthContext`
+
+### react-native-safe-area-context
+
+```bash
+yarn add react-native-safe-area-context
+```
+
+**Issue** : Start of the content is behiden the status bar.
+
+- This package is useful to maintain the View(UI) safe on status bar, navigation bar, notches.
+- Need to add `SafeAreaProvider` on RootView on App folder.
+- Then, Add `SafeAreaView` to all the screens
