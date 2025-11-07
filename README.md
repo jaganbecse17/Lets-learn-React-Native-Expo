@@ -48,3 +48,59 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+# Common instructions
+
+## 📘 Naming Conventions
+
+### Folders
+
+> **PascalCase** for component folders → `Button/, UserCard/`
+
+> **camelCase** for util and hook folders → `utils/, hooks/`
+
+> **snake_case** or **kebab-case** only for public assets → `images/icons/, profile-pic.png`
+
+### Files
+
+| Type           | Convention                                      | Example                             |
+| -------------- | ----------------------------------------------- | ----------------------------------- |
+| Components     | `PascalCase`                                    | `UserCard.tsx`                      |
+| Screens        | `PascalCase` with “Screen” suffix               | `LoginScreen.tsx`                   |
+| Hooks          | `camelCase` starting with `use`                 | `useAuth.ts`                        |
+| Contexts       | `PascalCase`                                    | `AuthContext.tsx`                   |
+| Services / API | `camelCase` + `.service.ts`                     | `user.service.ts`                   |
+| Styles         | same as file + `.styles.ts`                     | `HomeScreen.styles.ts`              |
+| Utilities      | `camelCase`                                     | `formatDate.ts`                     |
+| Constants      | `UPPER_SNAKE_CASE` inside `constants/colors.ts` | `PRIMARY_COLOR = "#007AFF"`         |
+| Types          | `PascalCase` + `.types.ts`                      | `User.types.ts`                     |
+| Navigation     | `PascalCase`                                    | `AppNavigator.tsx`, `RootStack.tsx` |
+| Test files     | `<Component>.test.tsx`                          | `Button.test.tsx`                   |
+
+### General Rules
+
+- State variables: camelCase
+
+- Files and folders: match main export (e.g., Button/Button.tsx)
+
+- Avoid platform suffix unless needed (HomeScreen.ios.tsx, HomeScreen.android.tsx)
+
+- Constants: all uppercase
+
+> export const API_URL = "https://api.example.com";
+
+- Enums: PascalCase
+
+> enum ThemeMode { Light, Dark }
+
+# Steps
+
+### Basic setup
+
+- Created the project with yarn as package manager
+
+```bash
+ yarn create expo-app
+```
+
+Currently using Expo **SDK 54** (current version), which has **New Architecture** is enabled by default in 54.
