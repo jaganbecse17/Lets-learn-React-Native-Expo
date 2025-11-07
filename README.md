@@ -55,7 +55,7 @@ Join our community of developers creating universal apps.
 
 ### Folders
 
-> **PascalCase** for component folders → `Button/, UserCard/`
+> **camelCase** for component folders → `form/, cards/`
 
 > **camelCase** for util and hook folders → `utils/, hooks/`
 

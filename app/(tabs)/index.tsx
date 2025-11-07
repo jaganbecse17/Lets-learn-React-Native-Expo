@@ -5,11 +5,16 @@ import { HelloWave } from "@/components/hello-wave";
 import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
+import { Button } from "@/components/ui";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { Href, Link, Redirect } from "expo-router";
 
 export default function HomeScreen() {
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated, logoutUser } = useAuthContext();
+
+  const handleLogout = () => {
+    logoutUser();
+  };
 
   if (!isAuthenticated) {
     return <Redirect href={"(auth)/login" as Href} />;
@@ -90,6 +95,7 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+      <Button label="App logout" onPress={handleLogout} />
     </ParallaxScrollView>
   );
 }
