@@ -125,6 +125,31 @@ yarn add react-native-safe-area-context
 yarn add -D prettier @trivago/prettier-plugin-sort-imports
 ```
 
+Created `.prettierrc` file for prettier configuration.
+
 - Prettier → formats code (indentation, spacing, quotes, etc.).
 - Trivago plugin → adds import sorting ability to Prettier.
-- `@trivago/prettier-plugin-sort-imports `, It auto-sorts your import statements during Prettier formatting and prettier package is required to work. trivago is not standalone package.
+
+`@trivago/prettier-plugin-sort-imports `, It auto-sorts your import statements during Prettier formatting and prettier package is required to work. trivago is not standalone package.
+
+```bash
+"prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
+```
+
+Added script on `package.json` for formattin all files at once.
+
+### EsLint setup
+
+```bash
+yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-expo eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-native
+```
+
+This command install the dev dependency to setup the eslint with airbnb preset rules.
+
+Note: Need to disable some rules for expo projects which i have mentioned on `eslint.config.js`
+
+#### Reason for disabling rules:
+
+1. Using const value before declaration. Stylesheet is declared after the component.
+2. Importing the component without extension when used with alias path `@/`
+3. Not default exporting file when only one statement is export in a file.
