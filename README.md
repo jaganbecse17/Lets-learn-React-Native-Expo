@@ -118,3 +118,13 @@ yarn add react-native-safe-area-context
 - This package is useful to maintain the View(UI) safe on status bar, navigation bar, notches.
 - Need to add `SafeAreaProvider` on RootView on App folder.
 - Then, Add `SafeAreaView` to all the screens
+
+### Prettier setup
+
+```bash
+yarn add -D prettier @trivago/prettier-plugin-sort-imports
+```
+
+- Prettier → formats code (indentation, spacing, quotes, etc.).
+- Trivago plugin → adds import sorting ability to Prettier.
+- `@trivago/prettier-plugin-sort-imports `, It auto-sorts your import statements during Prettier formatting and prettier package is required to work. trivago is not standalone package.
