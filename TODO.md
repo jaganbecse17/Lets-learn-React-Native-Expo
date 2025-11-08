@@ -10,7 +10,7 @@
   - Lint check
   - EAS build
 
-## Techical
+## Technical
 
 - State management
 - Firebase
@@ -35,3 +35,8 @@
 - MMKV
 - Bottom sheet
 - Payment gateway
+
+1. What type of medicine
+2. Regular medicine recommanded ?
+3. Future disease ?
+4.
