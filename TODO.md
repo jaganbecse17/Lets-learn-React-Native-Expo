@@ -5,25 +5,25 @@
 - Eslint plugin
 - Commit lint
 - Pipelines
-  - bundle analizer
-  - Ts check
-  - Lint check
-  - EAS build
+    - bundle analizer
+    - Ts check
+    - Lint check
+    - EAS build
 
 ## Technical
 
 - State management
 - Firebase
-  - Login
-  - Remote config
-  - Analytics
-  - Crashlytics
+    - Login
+    - Remote config
+    - Analytics
+    - Crashlytics
 - OneSignal
-  - Push notification
-  - In-App banner
+    - Push notification
+    - In-App banner
 - Native feature
-  - Live notification
-  - Dynamic island
+    - Live notification
+    - Dynamic island
 
 ## Feature
 
