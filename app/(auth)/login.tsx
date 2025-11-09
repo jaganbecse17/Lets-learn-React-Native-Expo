@@ -24,24 +24,30 @@ export default function LoginPage() {
         router.replace('/(tabs)');
     };
 
+    const handleEmailChange = (value: string) => {
+        emailRef.current = value;
+    };
+
+    const handlePasswordChange = (value: string) => {
+        passwordRef.current = value;
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.pageContainer}>
                 <Text style={styles.header}>Welcome Expo developer!</Text>
                 <View style={styles.inputWrapper}>
                     <Text style={styles.label}> Email</Text>
-                    <InputField
-                        onChangeText={(value) => (emailRef.current = value)}
-                    />
+                    <InputField onChangeText={handleEmailChange} />
                 </View>
                 <View style={styles.inputWrapper}>
                     <Text style={styles.label}> Password</Text>
                     <InputField
-                        onChangeText={(value) => (passwordRef.current = value)}
-                        secureTextEntry={true}
+                        onChangeText={handlePasswordChange}
+                        secureTextEntry
                     />
                 </View>
-                <View style={{ marginTop: 24 }}>
+                <View style={styles.buttonWrapper}>
                     <Pressable style={styles.button} onPress={handleLogin}>
                         <Text style={styles.ctaText}>Login</Text>
                     </Pressable>
@@ -52,27 +58,27 @@ export default function LoginPage() {
 }
 
 const styles = StyleSheet.create({
+    button: {
+        backgroundColor: '#1e90ff',
+        borderRadius: 8,
+        padding: 12,
+    },
+    buttonWrapper: { marginTop: 24 },
     container: { flex: 1, justifyContent: 'center' },
-    inputWrapper: { marginVertical: 12 },
-
+    ctaText: { color: '#fff', textAlign: 'center' },
     header: {
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold',
-        textAlign: 'center',
         marginBottom: 26,
+        textAlign: 'center',
     },
+    inputWrapper: { marginVertical: 12 },
+    label: { color: '#fff' },
     pageContainer: {
         backgroundColor: '#4ea5dbb1',
+        borderRadius: 16,
         margin: 52,
         padding: 32,
-        borderRadius: 16,
     },
-    button: {
-        backgroundColor: '#1e90ff',
-        padding: 12,
-        borderRadius: 8,
-    },
-    ctaText: { color: '#fff', textAlign: 'center' },
-    label: { color: '#fff' },
 });

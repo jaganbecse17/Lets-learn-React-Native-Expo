@@ -9,6 +9,8 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
 import { Image } from 'expo-image';
 
+const logo = require('@/assets/images/react-logo.png');
+
 export default function TabTwoScreen() {
     return (
         <ParallaxScrollView
@@ -72,10 +74,7 @@ export default function TabTwoScreen() {
                     <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes
                     to provide files for different screen densities
                 </ThemedText>
-                <Image
-                    source={require('@/assets/images/react-logo.png')}
-                    style={{ width: 100, height: 100, alignSelf: 'center' }}
-                />
+                <Image source={logo} style={styles.logo} />
                 <ExternalLink href="https://reactnative.dev/docs/images">
                     <ThemedText type="link">Learn more</ThemedText>
                 </ExternalLink>
@@ -128,11 +127,12 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
     headerImage: {
-        color: '#808080',
         bottom: -90,
+        color: '#808080',
         left: -35,
         position: 'absolute',
     },
+    logo: { alignSelf: 'center', height: 100, width: 100 },
     titleContainer: {
         flexDirection: 'row',
         gap: 8,

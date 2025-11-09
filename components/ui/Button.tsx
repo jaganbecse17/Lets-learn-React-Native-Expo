@@ -4,19 +4,19 @@ interface Props extends PressableProps {
     label: string;
 }
 
-export const Button = (props: Props) => {
+export function Button({ label, ...rest }: Props) {
     return (
-        <Pressable style={styles.button} {...props}>
-            <Text style={styles.ctaText}>{props.label}</Text>
+        <Pressable style={styles.button} {...rest}>
+            <Text style={styles.ctaText}>{label}</Text>
         </Pressable>
     );
-};
+}
 
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#1e90ff',
-        padding: 12,
         borderRadius: 8,
+        padding: 12,
     },
     ctaText: { color: '#fff', textAlign: 'center' },
 });

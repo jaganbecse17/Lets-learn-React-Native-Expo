@@ -1,15 +1,9 @@
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 
+import { IAuthContextType } from '@/contracts/context.types';
 import { AppUserEntity } from '@/contracts/user.types';
 
-interface AuthContextType {
-    isAuthenticated: boolean;
-    user: AppUserEntity;
-    userLogin: (user: AppUserEntity) => boolean;
-    logoutUser: () => void;
-}
-
-const authContext = createContext<AuthContextType | undefined>(undefined);
+const authContext = createContext<IAuthContextType | undefined>(undefined);
 
 export const useAuthContext = () => {
     const context = useContext(authContext);
@@ -21,12 +15,15 @@ export const useAuthContext = () => {
     return context;
 };
 
-export const AuthContextProvider = ({
+export function AuthContextProvider({
     children,
 }: {
     children: React.ReactNode;
-}) => {
-    const [user, setUser] = useState<AppUserEntity>({} as AppUserEntity);
+}) {
+    const [user, setUser] = useState<AppUserEntity>({
+        email: '',
+        password: '',
+    } as AppUserEntity);
 
     const userLogin = (newUser: AppUserEntity) => {
         if (newUser.email && newUser.password) {
@@ -40,15 +37,19 @@ export const AuthContextProvider = ({
         setUser({} as AppUserEntity);
     };
 
-    const initialState = {
-        isAuthenticated: !!user.email,
-        user,
-        userLogin,
-        logoutUser,
-    };
+    const initialState = useMemo(
+        () => ({
+            isAuthenticated: !!user.email,
+            user,
+            userLogin,
+            logoutUser,
+        }),
+        [user],
+    );
+
     return (
         <authContext.Provider value={initialState}>
             {children}
         </authContext.Provider>
     );
-};
+}
